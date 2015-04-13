@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(['$routeProvider','$locationProvider',function ($routeProvider,$locationProvider) {
+    $locationProvider.html5Mode(true).hashPrefix("!");
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -31,6 +32,10 @@ angular
         templateUrl: 'views/stats.html',
         controller: 'StatsCtrl'
       })
+      .when('/game', {
+        templateUrl: 'views/game.html',
+        controller: 'GameCtrl'
+      })
       .when('/contact', {
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl'
@@ -38,4 +43,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  }]);
+  }]).run(function($rootScope, $location) {
+    $rootScope.location = $location;
+  });

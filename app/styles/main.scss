@@ -89,3 +89,30 @@ body {
     border-bottom: 0;
   }
 }
+
+
+.gamestage{
+min-height:300px;
+}
+.controlpad{
+width: 100%;
+}
+.logoImage{
+width:100%;
+}
+
+.prestart,
+.gameplay{
+    margin-top:40px;
+    font-size: 3em;
+    text-align: center;
+}
+.statusvalue{
+  color: #4C4C3D;
+  background-color: #FFFFCC;
+}
+.number{color:#c06;}
+.upper{color:#690;}
+.lower{
+color:#06c;
+}

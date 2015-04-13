@@ -1,0 +1,18 @@
+<div class="gamestage container">
+<div class="col-xs-4 statusvalue pull-left">Typd <span class="value">{{lastpressed}}</span></div>
+<div class="col-xs-5 statusvalue pull-right">Score <span class="value">{{score}}</span></div>
+<div class="row">
+    <div class="gameplay" ng-bind-html="gameplay"></div>
+</div>
+<div class="prestart row" ng-class="{hidden:isRunning}">
+    <div class="row">{{countDown}}</div>
+    <div class="row">Type the letters</div>
+</div>
+</div>
+<input placeholder="Touch to Start!" 
+       ng-focus="focused($event)"
+       ng-change="changed($event)" 
+       ng-model="lastpressed"  
+       type="textfield" 
+       name="controlpad"
+       class="controlpad"/>
