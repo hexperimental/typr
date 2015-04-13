@@ -27,6 +27,27 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
+
+    notify: {
+      task_name: {
+        options: {
+          // Task-specific options go here.
+          message: 'Grunt is done'
+        }
+      },
+      watch: {
+        options: {
+          title: 'Task Complete',  // optional
+          message: 'SASS and Uglify finished running', //required
+        }
+      },
+      server: {
+        options: {
+          message: 'Server is ready!'
+        }
+      }
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -423,6 +444,7 @@ module.exports = function (grunt) {
   });
 
 
+  grunt.loadNpmTasks('grunt-notify');
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -466,9 +488,9 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'notify'
   ]);
-
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
